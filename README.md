@@ -6,34 +6,34 @@
 <h3 align="center">📌 **Team 차곡차곡**</h3>
 
 <table align="center">
-  <tr>
-    <td align="center" width="150px">
-      <img src="./images/Leonardo.png" width="110">
+  <tr valign="top">
+    <td align="center" width="130px">
+      <img src="./images/Leonardo.png" width="90" height="90" style="object-fit: contain;">
       <br><b>이창우</b><br>역할 | PM<br>
       <a href="https://github.com/Gloveman"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
-    <td align="center" width="150px">
-      <img src="./images/Isabelle.png" width="110">
+    <td align="center" width="130px">
+      <img src="./images/Isabelle.png" width="90" height="90" style="object-fit: contain;">
       <br><b>김지윤</b><br>역할 | FRONT<br>
       <a href="https://github.com/JiyounKim-EllyKim"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
-    <td align="center" width="150px">
-      <img src="./images/Katie.png" width="110">
+    <td align="center" width="130px">
+      <img src="./images/Katie.png" width="90" height="90" style="object-fit: contain;">
       <br><b>박기은</b><br>역할 | FRONT<br>
       <a href="https://github.com/gieun-Park"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
-    <td align="center" width="150px">
-      <img src="./images/Bluebear.png" width="110">
+    <td align="center" width="130px">
+      <img src="./images/Bluebear.png" width="90" height="90" style="object-fit: contain;">
       <br><b>박은지</b><br>역할 | DB/BACK<br>
       <a href="https://github.com/lo1f0306"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
-    <td align="center" width="150px">
-      <img src="./images/Dotty.png" width="110">
+    <td align="center" width="130px">
+      <img src="./images/Dotty.png" width="90" height="90" style="object-fit: contain;">
       <br><b>윤정연</b><br>역할 | FRONT<br>
       <a href="https://github.com/dimolto3"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
-    <td align="center" width="150px">
-      <img src="./images/Tom Nook.png" width="110">
+    <td align="center" width="130px">
+      <img src="./images/Tom Nook.png" width="90" height="90" style="object-fit: contain;">
       <br><b>홍지윤</b><br>역할 | DB/BACK<br>
       <a href="https://github.com/jyh-skn"><img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white"/></a>
     </td>
