@@ -4,6 +4,7 @@ from streamlit_folium import st_folium
 import pandas as pd
 import math
 import numpy as np
+
 from folium.plugins import MarkerCluster
 
 ITEMS_PER_PAGE = 4
