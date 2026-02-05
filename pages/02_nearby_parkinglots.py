@@ -11,12 +11,35 @@ ITEMS_PER_PAGE = 4
 # 1. 페이지 설정
 st.set_page_config(layout="wide", page_title="Parking Mate")
 
+# 버튼 겹침 및 글자 깨짐 방지
+st.markdown("""
+    <style>
+    /* 버튼 내부 글자 줄바꿈 방지 */
+    div.stButton > button p {
+        white-space: nowrap !important;
+        font-size: 14px !important;
+    }
+    /* 버튼 간격 및 최소 너비 최적화 */
+    div.stButton > button {
+        min-width: 35px !important; 
+        width: 100% !important;
+        padding: 0px !important;
+        margin: 0px 2px !important; 
+    }
+    /* 컬럼 간격 미세 조정 */
+    [data-testid="column"] {
+        padding-left: 1px !important;
+        padding-right: 1px !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
 # 2. 세션 상태 초기화 (데이터 바구니 생성)
 if 'search_results' not in st.session_state:
     st.session_state.search_results = []
 
-if "list_current_page" not in st.session_state: #리스트에서 현재 탐색중인 페이지
-    st.session_state.current_page = 1
+if "list_result_current_page" not in st.session_state: #리스트에서 현재 탐색중인 페이지
+    st.session_state.list_result_current_page = 1
 
 if "destination" not in st.session_state: #검색 결과
     st.session_state.destination = None
@@ -60,8 +83,8 @@ with right_col:
     # 지도 표시 로직
     if st.session_state.search_results and len(st.session_state.search_results)>0:
         # 데이터가 있을 때 첫 번째 검색 결과 위치로 이동
-        center_lat = st.session_state.search_results[0].lat
-        center_lng = st.session_state.search_results[0].lng
+        center_lat = st.session_state.search_results[0].lat #수정필요
+        center_lng = st.session_state.search_results[0].lng #수정필요
         zoom_level = 14
     else:
         center_lat, center_lng = 37.5665, 126.9780  # 서울 기본 위치
@@ -79,7 +102,7 @@ with right_col:
             tooltip= dest.name,
             icon=folium.Icon(color="red", icon="info-sign")
         ).add_to(m)
-    for parking_lot in st.session_state.search_results:
+    for parking_lot in st.session_state.search_results: # 수정필요
         folium.Marker(
             location=[parking_lot.lat, parking_lot.lng],
 
@@ -98,8 +121,13 @@ with left_col:
     if st.session_state.search_results:
         total_items = len(st.session_state.search_results)
         total_pages = math.ceil(total_items / ITEMS_PER_PAGE)
-        start_idx = (st.session_state.current_page - 1) * ITEMS_PER_PAGE
+        current_group = (st.session_state.list_result_current_page - 1) // 5
+        start_page = current_group * 5 + 1
+        end_page = min(start_page + 4, total_pages)
+
+        start_idx = (st.session_state.list_result_current_page - 1) * ITEMS_PER_PAGE
         end_idx = start_idx + ITEMS_PER_PAGE
+
         if sort_option== '가까운순 ▼':
             page_data = st.session_state.search_results[start_idx:end_idx]
         elif sort_option== '이름순▼':
@@ -107,7 +135,7 @@ with left_col:
         else:
             page_data = sorted(st.session_state.search_results, key=lambda x: x.name)[start_idx:end_idx]
 
-        for parking_lot in page_data:
+        for parking_lot in page_data: # 수정필요
             with st.container():
                 st.markdown(f"""
                 <div style="border:1px solid #ddd; padding:15px; border-radius:10px; margin-bottom:10px; background-color:white;">
@@ -116,30 +144,50 @@ with left_col:
                     <p style="margin:0; color:#007BFF; font-weight:bold;">🅿️ 주차면수: {parking_lot.space_no}면</p>
                 </div>
                 """, unsafe_allow_html=True)
+        st.write("---")
+        page_cols = st.columns([1.1, 1, 1, 1, 1, 1, 1.5])
 
-        col_prev, col_page, col_next = st.columns([1, 2, 1])
-        with col_prev:
-            is_first = st.session_state.current_page == 1
-            if st.button("⬅️ 이전", use_container_width=True, disabled=is_first):
-                st.session_state.current_page -= 1
-                st.rerun()
+        with page_cols[0]:
+            if current_group > 0:
+                if st.button("◀", key="prev_group"):
+                    st.session_state.list_result_current_page = start_page - 1
+                    st.rerun()
 
-        with col_page:
-            st.markdown(
-                f"""
-                    <div style="text-align: center; background-color: #f0f2f6; border-radius: 8px; padding: 4px;">
-                        <span style="font-size: 0.9rem; color: #555;">Page</span><br>
-                        <strong style="font-size: 1.2rem; color: #007BFF;">{st.session_state.current_page}</strong> 
-                        <span style="color: #999;">/ {total_pages}</span>
-                    </div>
-                    """,
-                unsafe_allow_html=True
-            )
+        for i, p in enumerate(range(start_page, end_page + 1)):
+            with page_cols[i + 1]:
+                btn_type = "primary" if st.session_state.list_result_current_page == p else "secondary"
+                if st.button(str(p), key=f"p_{p}", type=btn_type, use_container_width=True):
+                    st.session_state.list_result_current_page = p
+                    st.rerun()
 
-        with col_next:
-            is_last = st.session_state.current_page == total_pages
-            if st.button("다음 ➡️", use_container_width=True, disabled=is_last):
-                st.session_state.current_page += 1
-                st.rerun()
+        with page_cols[6]:
+            if end_page < total_pages:
+                if st.button("▶", key="next_group"):
+                    st.session_state.list_result_current_page = end_page + 1
+                    st.rerun()
+        #col_prev, col_page, col_next = st.columns([1, 2, 1])
+        # with col_prev:
+        #     is_first = st.session_state.list_result_current_page == 1
+        #     if st.button("⬅️ 이전", use_container_width=True, disabled=is_first):
+        #         st.session_state.list_result_current_page -= 1
+        #         st.rerun()
+        #
+        # with col_page:
+        #     st.markdown(
+        #         f"""
+        #             <div style="text-align: center; background-color: #f0f2f6; border-radius: 8px; padding: 4px;">
+        #                 <span style="font-size: 0.9rem; color: #555;">Page</span><br>
+        #                 <strong style="font-size: 1.2rem; color: #007BFF;">{st.session_state.list_result_current_page}</strong>
+        #                 <span style="color: #999;">/ {total_pages}</span>
+        #             </div>
+        #             """,
+        #         unsafe_allow_html=True
+        #     )
+        #
+        # with col_next:
+        #     is_last = st.session_state.list_result_current_page == total_pages
+        #     if st.button("다음 ➡️", use_container_width=True, disabled=is_last):
+        #         st.session_state.list_result_current_page += 1
+        #         st.rerun()
     else:
         st.info("오른쪽 검색창에서 가고 싶은 곳을 검색해 보세요!")
