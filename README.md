@@ -58,7 +58,7 @@
 <h3>📌 프로젝트 내용</h3>
 ① 목적지 검색 및 주변 시설 필터링
 >사용자가 입력한 목적지 명칭 또는 주소를 기반으로 DB 내에 저장된 시설 데이터를 조회한다.
-별도의 실시간 위치 추적(GPS) 없이도 사용자가 가고자 하는 지점 주변의 정보를 미리 파악할 수 있도록 돕는다.
+>별도의 실시간 위치 추적(GPS) 없이도 사용자가 가고자 하는 지점 주변의 정보를 미리 파악할 수 있도록 돕는다.
 
 ② 웹 크롤링을 통한 유가 및 시설 데이터 확보
 >BeautifulSoup4 및 Selenium을 활용하여 웹상의 주유소 가격 및 주차장 정보를 수집한다.
@@ -85,7 +85,6 @@
 
 ## 🛠 기술 스택
 - **Backend**: ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-!
 - **Frontend**: ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
 - **Database**: ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 - **Data**: Pandas  
