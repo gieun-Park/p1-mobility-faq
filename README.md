@@ -1,9 +1,9 @@
-<h1>SKN26-1st-3Team</h1>
+# SKN26-1st-3Team
 
 ---
+## 👋🏻 팀 소개
+### 📌 **Team 차곡차곡**
 
-<h2>👋🏻 팀 소개</h2>
-<h3>📌 **Team 차곡차곡**</h3>
 
 <table align="center">
   <tr>
@@ -46,17 +46,16 @@
 ---
 
 
-<h2>🚗 목적지 주변 주차장&주유소 조회 시스템🚗</h2> 
+## 🚗 목적지 주변 주차장&주유소 조회 시스템🚗
 
-<h3>📌 개발 기간</h3>
+### 📌 개발 기간
 2026.02.05 ~ 2026.02.06
 
-<h3>📌 프로젝트 개요</h3>
-공공데이터 기반의 MySQL 공간 쿼리를 활용해 목적지 반경 내 시설을 정밀하게 필터링하며, 
-가격 변동이 잦은 주유소 정보는 실시간 API로 정확성을 높였습니다. 
+### 📌 프로젝트 개요
+공공데이터 기반의 MySQL 공간 쿼리를 활용해 목적지 반경 내 시설을 정밀하게 필터링하며, 가격 변동이 잦은 주유소 정보는 실시간 API로 정확성을 높였습니다. 
 지도 시각화와 카드 UI를 통해 복잡한 검색 과정 없이 직관적인 모빌리티 환경을 제공합니다.
 
-<h3>📌 프로젝트 내용</h3>
+### 📌 프로젝트 내용
 1️⃣ 장소 기반 주차장&주유소 검색 및 시각화
 - 사용자의 검색 의도에 맞춰 정보를 파악할 수 있는 직관적인 모빌리티 탐색 환경을 제공
 - 사용자가 입력한 장소 또는 주소의 좌표를 분석하여, 해당 위치 반경 내의 정보를 조회
@@ -104,7 +103,7 @@ project-root/
 - **Backend**: ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 - **Frontend**: ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white) 
 - **Database**: ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-- **Data**: Pandas  
+- **Data**: ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)
 - **Infra**: ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 
