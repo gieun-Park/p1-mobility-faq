@@ -23,7 +23,7 @@ if "list_result_current_page" not in st.session_state: #리스트에서 현재 �
 
 
 # --- 레이아웃 ---
-st.title("⛽ 주유 Mate")
+st.title("⛽ Gas Station Mate")
 st.write("---")
 
 left_col, right_col = st.columns([1, 2])
