@@ -152,7 +152,7 @@ project-root/
         <tr>
             <td rowspan="5" style="text-align: center; font-weight: bold; border: 1px solid #ddd;">이창우</td>
             <td style="text-align: center; border: 1px solid #ddd;">김지윤</td>
-            <td style="border: 1px solid #ddd; padding: 10px;">프로젝트 전반을 깊이 이해하고 주도적으로 이끌어 주셨으며, 초반 시스템 구축을 거의 혼자 담당해 주신 덕분에 전반적으로 완성도 높은 결과물을 도출할 수 있었습니다. 또한 해결이 쉽지 않은 부분들을 도맡아 주셔서 프로젝트가 원활하게 진행되는 데 큰 기여를 해주셨습니다.</td>
+            <td style="border: 1px solid #ddd; padding: 10px;">프로젝트 전반을 깊이 이해하고 주도적으로 이끌어 주셨으며, 초반 시스템을 탄탄하게 구축해 주신 덕분에 전반적으로 완성도 높은 결과물을 도출할 수 있었습니다. 또한 해결이 쉽지 않은 문제들을 주도적으로 맡아 주셔서 프로젝트가 원활하게 진행되는 데 큰 기여를 해주셨습니다.</td>
         </tr>
         <tr>
             <td style="text-align: center; border: 1px solid #ddd;">박기은</td>
